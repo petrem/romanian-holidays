@@ -44,7 +44,7 @@
 ;;
 ;; To replace the built-in list of holidays with all the romanian ones:
 ;;
-;;  (setq calendar-holidays romanian-holidays-all)
+;;  (setq calendar-holidays romanian-holidays-all-holidays)
 ;;
 ;; To add the romanian legal days off as the user-defined holidays:
 ;;
@@ -101,7 +101,7 @@
     (holiday-fixed      12   26 "A doua zi de Crăciun"))
   "(Orthodox) Christian romanian holidays (legal holidays).")
 
-;;;###autoload
+
 (defvar romanian-holidays-legal-holidays
   (append romanian-holidays--general-holidays romanian-holidays--christian-holidays nil)
   "Legal holidays (days off) in Romania.")
@@ -131,8 +131,8 @@
     (holiday-fixed      10   26      "Sf. Dumitru"))
   "Some other holidays and commemorative dates observed in Romania.")
 
-;;;###autoload
-(defvar romanian-holidays-all
+
+(defvar romanian-holidays-all-holidays
   (append romanian-holidays-legal-holidays romanian-holidays--other-holidays nil)
   "Romanian Holidays and commemoration dates.")
 
