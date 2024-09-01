@@ -37,7 +37,7 @@
 ;; Or with `use-package', add to your config file:
 ;;
 ;;   (use-package romanian-holidays)
-;; 
+;;
 ;; Configuration:
 ;;
 ;; You can use `romanian-holidays' in several ways. For example:
@@ -72,10 +72,9 @@
 
 ;;; Code:
 
-(eval-when-compile
-  (require 'calendar)
-  (require 'holidays))
-
+(require 'calendar)
+(require 'holidays)
+(require 'cal-julian)
 
 (defvar romanian-holidays--general-holidays
   '((holiday-fixed       1    1 "Anul Nou")
@@ -139,7 +138,24 @@
 ;; An Orthodox Easter day calculation.
 ;; There is a package for it, see
 ;; https://github.com/hexmode/holiday-pascha-etc/blob/master/holiday-pascha-etc.el
-;; but we don't want to depend on a third party.
+;; but I don't want to depend on a third party.
+;;
+;; For the calculation I've also consulted:
+;;
+;; - https://dateutil.readthedocs.io/en/stable/_modules/dateutil/easter.html
+;;
+;; - https://www.tondering.dk/claus/cal/easter.php
+;;
+;; - https://hackage.haskell.org/package/time-1.14/docs/src/Data.Time.Calendar.Easter.html#orthodoxEaster
+;;
+;; The last references N. Dershowitz and E. M. Reingold, "Calendrical Calculations", ch.
+;; 8. Interestingly this gives a Lisp implememntation that closely matches the "western"
+;; Easter in Emacs's implementation for `holiday-easter-etc'. Not surprising, given that
+;; the second author wrote `calendar.el' ;-).
+
+;; Unfortunately there's no algorithm given for Orthodox Easter. Thus I've adapted the
+;; Haskell "time" package version, arriving at a solution similar to the emacs package
+;; referenced above.
 
 (defun romanian-holidays--holiday-orthodox-easter-etc (n string)
   "Date of Nth day after Orthodox Easter (named STRING).
@@ -147,7 +163,16 @@
 See `holiday-easter-etc'. However this function requires its
 arguments and does not work similarly in \"backwards
 compatibility mode\"."
-  (error "TODO: implement this"))
+  (let* ((y displayed-year)
+         (jyear (if (> y 0) y (1- y)))
+         (shifted-epact (% (+ 14 (* 11 (% jyear 19))) 30))
+         (paschal-moon (- (calendar-julian-to-absolute `(4 19 ,jyear)) shifted-epact))
+         (abs-easter   ;; sunday after paschal moon
+          (calendar-dayname-on-or-before 0 (+ paschal-moon 7)))
+         (greg (calendar-gregorian-from-absolute (+ abs-easter n))))
+    (if (calendar-date-is-visible-p greg)
+        (list (list greg string)))))
+
 
 (provide 'romanian-holidays)
 ;;; romanian-holidays.el ends here
