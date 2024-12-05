@@ -157,6 +157,8 @@
 ;; Haskell "time" package version, arriving at a solution similar to the emacs package
 ;; referenced above.
 
+(defvar displayed-year)
+
 (defun romanian-holidays--holiday-orthodox-easter-etc (n string)
   "Date of Nth day after Orthodox Easter (named STRING).
 
