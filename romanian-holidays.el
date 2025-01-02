@@ -1,6 +1,6 @@
 ;;; romanian-holidays.el --- Romanian holidays                   -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2024 Petre Mierluțiu
+;; Copyright (C) 2024-2025 Petre Mierluțiu
 
 ;; Author: Petre Mierluțiu
 ;; Version: 0.0.1
@@ -29,37 +29,38 @@
 ;;
 ;; Installation:
 ;;
-;;   M-x package-install RET romanian-holidays RET
+;;     M-x package-install RET romanian-holidays RET
 ;;
 ;; You'll likely need to add to your config files:
-;;  (require 'romanian-holidays)
 ;;
-;; Or with `use-package', add to your config file:
+;;     (require 'romanian-holidays)
 ;;
-;;   (use-package romanian-holidays)
+;; Or, with 'use-package', add to your config file:
+;;
+;;     (use-package romanian-holidays)
 ;;
 ;; Configuration:
 ;;
-;; You can use `romanian-holidays' in several ways. For example:
+;; You can use 'romanian-holidays' in several ways. Here are two examples.
 ;;
 ;; To replace the built-in list of holidays with all the romanian ones:
 ;;
-;;  (setq calendar-holidays romanian-holidays-all-holidays)
+;;     (setq calendar-holidays romanian-holidays-all-holidays)
 ;;
 ;; To add the romanian legal days off as the user-defined holidays:
 ;;
-;;  (setq holiday-other-holidays romanian-holidays-legal)
+;;     (setq holiday-other-holidays romanian-holidays-legal)
 ;;
 ;; You may want to disable all (or some of) the pre-defined holidays:
 ;;
-;;   (setq holiday-general-holidays nil
-;;         holiday-bahai-holidays nil
-;;         holiday-hebrew-holidays nil
-;;         holiday-christian-holidays nil
-;;         holiday-islamic-holidays nil
-;;         holiday-oriental-holidays nil)
+;;     (setq holiday-general-holidays nil
+;;           holiday-bahai-holidays nil
+;;           holiday-hebrew-holidays nil
+;;           holiday-christian-holidays nil
+;;           holiday-islamic-holidays nil
+;;           holiday-oriental-holidays nil)
 ;;
-;; See also: `calendar-holidays'.
+;; See also: 'calendar-holidays'.
 
 ;;; Credits:
 ;;
@@ -154,7 +155,7 @@
 ;; the second author wrote `calendar.el' ;-).
 
 ;; Unfortunately there's no algorithm given for Orthodox Easter. Thus I've adapted the
-;; Haskell "time" package version, arriving at a solution similar to the emacs package
+;; Haskell "time" package version, arriving at a solution similar to the Emacs package
 ;; referenced above.
 
 (defvar displayed-year)
