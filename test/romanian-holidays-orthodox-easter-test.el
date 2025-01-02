@@ -1,4 +1,4 @@
-;;; romanian-holidays-test.el --- Tests for orthodox easter calculation  -*- lexical-binding: t; -*-
+;;; romanian-holidays-orthodox-easter-test.el --- Tests for orthodox easter calculation  -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
@@ -300,6 +300,3 @@
   (dolist (ed easter-dates nil)
     (set-displayed-date ed)
     (should (equal (list (list ed "foo")) (romanian-holidays--holiday-orthodox-easter-etc 0 "foo")))))
-
-(provide 'romanian-holidays-test)
-;;; romanian-holidays-test.el ends here

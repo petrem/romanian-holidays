@@ -36,9 +36,9 @@ If you would like to contribute with changes, please report an issue and add a p
 request.
 
 Some tests were written to check the `romanian-holidays--holiday-orthodox-easter-etc`
-function. They can be run with:
+function. They can be run with e.g.:
 
-    emacs -q -batch -l ert -l romanian-holidays-test.el -f ert-run-tests-batch-and-exit
+    emacs -q -batch -l ert -l test/romanian-holidays-orthodox-easter-test.el -f ert-run-tests-batch-and-exit
 
 ## License
 
