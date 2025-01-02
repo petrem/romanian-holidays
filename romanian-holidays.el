@@ -127,6 +127,7 @@
     (romanian-holidays--holiday-orthodox-easter-etc       40 "Înățarea Domnului")
     (holiday-fixed       6   20      "Sf. Ilie")
     (holiday-fixed       6   29      "Ss. Petru și Pavel")
+    (holiday-fixed       9    8      "Sf. Maria")
     (holiday-fixed       9   29      "Ss. Mihail, Gabriel și Rafael")
     (holiday-fixed      10   26      "Sf. Dumitru"))
   "Some other holidays and commemorative dates observed in Romania.")
