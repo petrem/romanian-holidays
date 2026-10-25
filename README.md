@@ -21,9 +21,9 @@ function. They can be run with e.g.:
 
 ## License
 
-GPL-3.0-only License
+GPL-3.0-or-later License
 
-Copyright (c) 2024 Petre Mierluțiu
+Copyright (c) 2024-2026 Petre Mierluțiu
 
 This program is free software: you can redistribute it and/or modify it under the terms
 of the GNU General Public License as published by the Free Software Foundation, either
