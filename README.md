@@ -1,6 +1,9 @@
 # romanian-holidays
 Romanian holidays for GNU Emacs' Calendar
 
+![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)
+![Emacs](https://img.shields.io/badge/gnuemacs-%237F5AB6.svg?style=for-the-badge&logo=gnuemacs&logoColor=white)
+[![MELPA](https://melpa.org/packages/romanian-holidays-badge.svg)](https://melpa.org/#/romanian-holidays)
 
 ## Installation & Usage
 
